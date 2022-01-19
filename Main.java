@@ -35,6 +35,7 @@ public class Main {
 	newButton.addActionListener(new ActionListener() 
 	{
 		public void actionPerformed(ActionEvent e){  
+			setBoard(board);
             solveBoard(board);
             printBoard(board);
         }  
@@ -45,6 +46,7 @@ public class Main {
 	myFrame.setLayout(null);
 	myFrame.setVisible(true);
 
+	printBoard(board);
     
 	/*
 	 * printBoard(board);
@@ -56,37 +58,35 @@ public class Main {
 
     
   }
-
+  
+  private static void setBoard(int[][] board) {
+		int o=1;
+	    for (int m=0; m<9;m++)
+	    	for (int n=0;n<9;n++) {
+	    		//System.out.println(board[m][n]);
+	    		board[m][n]=Integer.parseInt(txtField[o++].getText());
+	    		System.out.println(board[m][n]);
+	    	}
+  }
 
 private static void loadBoard(int[][] board) {
 	int o=1;
     for (int m=0; m<9;m++)
     	for (int n=0;n<9;n++)
     		//System.out.println(board[m][n]);
-    		txtField[o++] = new JTextField(""+board[m][n]+"");
+    		txtField[o++] = new JTextField(""+board[n][m]+"");
     
 	int j=1;
-	int k=0;
-	int l=0;
+	int k=1;
 	for(int i=1; i<82; i++) {
-		
-		if (i%3==0) {
-			txtField[i].setBounds(90+k,100*j/4+l, 20,20);
-			j++;
-		}
-		else if (i%3==1)
-			txtField[i].setBounds(30+k,100*j/4+l, 20,20);
-		else if (i%3==2)
-			txtField[i].setBounds(60+k,100*j/4+l, 20,20);
+		txtField[i].setBounds(30*k,100*j/4, 20,20);
 		if (i%9==0) {
-			k+=120;j=1;
+			k=1;j++;
 		}
-		if (i%27==0) {
-			l+=120; k=0;
+		else {
+			k++;
 		}
-		//txtField[i].setText(""+i+"");
 		myFrame.add(txtField[i]);
-
   	}
 }
   

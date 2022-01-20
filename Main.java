@@ -12,7 +12,7 @@ public class Main {
   private static JFrame myFrame;
   
   public static void main(String[] args) {
-	  //erwerwerew
+
 	int[][] board = {
 	            {7, 0, 2, 0, 5, 0, 6, 0, 0},
 	            {0, 0, 0, 0, 0, 3, 0, 0, 0},
@@ -65,7 +65,7 @@ public class Main {
 	    	for (int n=0;n<9;n++) {
 	    		//System.out.println(board[m][n]);
 	    		board[m][n]=Integer.parseInt(txtField[o++].getText());
-	    		System.out.println(board[m][n]);
+	    		//System.out.println(board[m][n]);
 	    	}
   }
 
